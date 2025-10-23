@@ -20,20 +20,25 @@ per farlo posso generare un ciclo for che ripete 10 volte la stessa azione dando
 una volta fatto questo ho bisogno di un array dove stampare i vari cicli di chiamate, a questo punto dire di creare direttamente un arrai di oggetti e
 salvarmi i dati di ogni interazione.*/
 
-let ulEl = document.querySelector('ul')
+const ulEl = document.querySelector('ul')
+const btnEl= document.querySelector('button')
+
+btnEl.addEventListener('click', generaEmail)
 
 
-for(i = 0; i < 10; i++){
-fetch('https://flynn.boolean.careers/exercises/api/random/mail')
-.then(res => res.json())
-.then(data => {
-   
-    ulEl.innerHTML+=(`<li>${data.response}</li>`)
 
-})
+function generaEmail(){
+    for(i = 0; i < 10; i++){
+        fetch('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then(res => res.json())
+        .then(data => {
+           
+            ulEl.innerHTML+=(`<li>${data.response}</li>`)
+        
+        })
+        }
+        
 }
-
-
 
 
 
