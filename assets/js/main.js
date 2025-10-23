@@ -28,12 +28,14 @@ btnEl.addEventListener('click', generaEmail)
 
 
 function generaEmail(){
+    ulEl.innerHTML=''
     for(i = 0; i < 10; i++){
         fetch('https://flynn.boolean.careers/exercises/api/random/mail')
         .then(res => res.json())
         .then(data => {
-           
+            
             ulEl.innerHTML+=(`<li>${data.response}</li>`)
+            
         
         })
         }
