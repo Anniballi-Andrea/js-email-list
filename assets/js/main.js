@@ -20,7 +20,6 @@ per farlo posso generare un ciclo for che ripete 10 volte la stessa azione dando
 una volta fatto questo ho bisogno di un array dove stampare i vari cicli di chiamate, a questo punto dire di creare direttamente un arrai di oggetti e
 salvarmi i dati di ogni interazione.*/
 
-let emails = []
 let ulEl = document.querySelector('ul')
 
 
@@ -28,22 +27,11 @@ for(i = 0; i < 10; i++){
 fetch('https://flynn.boolean.careers/exercises/api/random/mail')
 .then(res => res.json())
 .then(data => {
-    emails.push(data.response) 
+   
+    ulEl.innerHTML+=(`<li>${data.response}</li>`)
+
 })
 }
-console.log(emails)
-
-
-
-
-
-/*fetch('https://flynn.boolean.careers/exercises/api/random/mail')
-.then(res => res.json())
-.then(data => {
-    emails.push(data.response)
-    console.log(data.response)
-    console.log(emails)
-})*/
 
 
 
@@ -51,10 +39,21 @@ console.log(emails)
 
 
 
-/*2 stamparli in pagina all'interno di una lista.
+
+
+
+
+
+
+
+/*2 stamparli in pagina all'interno di una lista
 
 arrivati a questo punto dovrei avere un array di oggetti sovrascritto con 1 oggetto per ogni interazione
 ciclandoci all'interno posso fare in modo che ad ogni interazione venga aggiunto ad un <ul></ul> un <li></li>
 contenente la mail.
+
+*ERRORE* le chiamate sono asincrone e quindi vengono eseguite dopo aver letto il codice, la soluzione trovata è stata stampare
+direttamente all'interno del ciclo della chiamata
+
 
 */
